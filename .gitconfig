@@ -1,4 +1,25 @@
 [alias]
+        # Push up untracked branch to origin
+	pushd = push -u origin HEAD
+
+	uncommit = reset --soft HEAD^
+	unstage = reset HEAD --
+
+        # Pull latest from master and rebase current branch
+        # Inspired by https://stackoverflow.com/questions/3216360/merge-update-and-pull-git-branches-without-using-checkouts
+        sync = "!git show ${1-master} --oneline --quiet; f() { git fetch origin ${1-master}:${1-master}; git rebase ${1-master}; }; f"
+
+        # List branches sorted by last modified
+        bs = "!f() { git for-each-ref --sort='-authordate' --format='%(if:equals=2021)%(authordate:format:%Y)%(then)%(color:bold red)%(else)%(color:reset)%(end)%(authordate:format:%b %d, %Y at %I:%M:%S %p %Z)%09%(if:equals=Brad Luczywo)%(authorname)%(then)%(color:bold blue)%(else)%(color:reset)%(end)%(authorname)%09%(color:bold yellow)%(objectname:short)%09%(if)%(HEAD)%(then)%(color:green)* %(else)%(color:reset)  %(end)%(refname)' --color refs/heads | sed -e 's-refs/heads/--'; }; f"
+
+        # List aliases
+        la = "!git config -l | grep alias | cut -c 7-"
+
+        # Clean up local branches that have been merged to master
+        bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}"$ | grep -v "^*" | xargs -r git branch -d; }; f"
+
+        # Clean up origin branches that have been merged
+        bfclean = "!f() { git log -5 --merges --format=%s | sed 's:Merge pull request #[0-9]* from wisr/::gi' | grep -v \"$(git branch --show-current)\" | xargs -r git branch -d 2>/dev/null; }; f"
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -80,7 +101,6 @@
 
 	# Use custom `.gitignore` and `.gitattributes`.
 	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
 	# [default] trailing-space: looks for spaces at the end of a line
@@ -152,9 +172,9 @@
 [push]
 
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
-	default = simple
+        #default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
-	followTags = true
+        #followTags = true
 
 # URL shorthands
 
@@ -180,4 +200,4 @@
 
 [init]
 
-	defaultBranch = main
+	defaultBranch = master

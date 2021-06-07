@@ -2,6 +2,8 @@
 
 # Install command-line tools using Homebrew.
 
+#!/bin/zsh
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
