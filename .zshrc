@@ -12,12 +12,14 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Initialize Powerline-status for command line theme
-. /Library/Python/3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+powerline=$(/usr/bin/python3 -m pip show powerline-status | grep Location: | sed -e "s-Location: --g")
+. $powerline/powerline/bindings/zsh/powerline.zsh
+unset powerline
 
 # Set up the "zsh Completion System"
 autoload -U compinit && compinit
 
-# Enable argcomplete support in Zsh
+# Enable argcomplete support in Zsh for scripts
 # https://kislyuk.github.io/argcomplete/#zsh-support
 autoload -U bashcompinit
 bashcompinit

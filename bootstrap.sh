@@ -6,14 +6,14 @@ git pull origin main;
 
 function doIt() {
 	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
-		--exclude "bootstrap.sh" \
-                --exclude "Brewfile" \
-                --exclude "setup.sh" \
-                --exclude "com.googlecode.iterm2.plist" \
-		--exclude "README.md" \
-		--exclude "LICENSE-MIT.txt" \
-		-avh --no-perms . ~;
+        --exclude ".DS_Store" \
+        --exclude "bootstrap.sh" \
+        --exclude "Brewfile" \
+        --exclude "setup.sh" \
+        --exclude "com.googlecode.iterm2.plist" \
+        --exclude "README.md" \
+        --exclude "LICENSE-MIT.txt" \
+        -avh --no-perms . ~;
 	source ~/.bash_profile;
 }
 

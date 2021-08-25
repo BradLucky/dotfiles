@@ -38,6 +38,12 @@ brew "htop"             # Improved interactive process viewer
 brew "libpq"            # Postgres C API library (may need to run `brew link --force libpq`)
 brew "openssl"
 
+# Necessary for Vundle plugin YouCompleteMe
+brew "cmake"
+brew "mono"
+brew "go"
+brew "nodejs"
+
 # Ops
 brew "heroku"
 brew "awscli"
