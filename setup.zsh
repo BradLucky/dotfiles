@@ -29,15 +29,15 @@ cd ~/Library/Fonts && {
 # Load preferences for iTerm
 #defaults read com.googlecode.iterm2
 
-# Install Vundle and configured packages
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
-
 # Use pyenv to install the latest version of Python and make it the default
-latest_python=$(pyenv install --list | grep -v - | grep -v b | tail -1)
+latest_python=$(pyenv install --list | grep -v - | grep "\." | grep -v rc | grep -v b | tail -1 | xargs)
 pyenv install $latest_python
 pyenv global $latest_python
 unset latest_python
+
+# Install Vundle and configured packages
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # Install powerline-status and git
 sudo -H /usr/bin/python3 -m pip install powerline-status
