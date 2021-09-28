@@ -10,6 +10,9 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "buo/cask-upgrade"
 
+# Font
+cask "font-sauce-code-pro-nerd-font"
+
 # Browsers
 cask "firefox-developer-edition"
 cask "google-chrome"

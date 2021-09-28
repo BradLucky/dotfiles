@@ -21,11 +21,6 @@ brew upgrade
 # Install everything in Brewfile
 brew bundle
 
-# Install SauceCodePro nerd font
-cd ~/Library/Fonts && { 
-    curl -O 'https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/complete/Sauce Code Pro Nerd Font Complete.ttf'
-    cd -; } &> /dev/null
-
 # Load preferences for iTerm
 #defaults read com.googlecode.iterm2
 
