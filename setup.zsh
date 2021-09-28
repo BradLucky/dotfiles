@@ -7,7 +7,7 @@
 xcode-select --install
 
 # This installs homebrew itself, and also the command line tools in silent mode
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Open up perms to /usr/local so that Homebrew can install all it needs to
 sudo chown -R $(whoami) $(brew --prefix)/*
