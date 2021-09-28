@@ -6,31 +6,39 @@
 
 ### Using Git and the bootstrap script
 
-You can clone the repository wherever you want. The bootstrapper script will pull in the latest version and copy the files to your home folder.
+You can clone the repository wherever you want. The bootstrapper script will pull in the latest version and copy the dotfiles to your home folder.
 
 ```shell
-git clone https://github.com/bradlucky/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone https://github.com/bradlucky/dotfiles.git && cd dotfiles && source bootstrap.zsh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
 
 ```shell
-source bootstrap.sh
+source bootstrap.zsh
 ```
 
 Alternatively, to update while avoiding the confirmation prompt:
 
 ```shell
-set -- -f; source bootstrap.sh
+set -- -f; source bootstrap.zsh
+```
+
+To completely set up a new machine, setup.zsh will do *all the thing*:
+
+```shell
+source setup.zsh
 ```
 
 ### Git-free install
 
-To install these dotfiles without Git:
+To acquire these dotfiles without Git:
 
 ```shell
-cd; curl -#L https://github.com/bradlucky/dotfiles/tarball/main | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt,setup.sh}
+cd; mkdir dotfiles && cd dotfiles; curl -#L https://github.com/bradlucky/dotfiles/tarball/main | tar -xzv --strip-components 1
 ```
+
+Note: Git will be installed with the Homebrew formulae installations.
 
 To update later on, just run that command again.
 
@@ -68,10 +76,12 @@ You could also use `~/.extra` to override settings, functions and aliases from m
 When setting up a new Mac, you can set defaults and install programs:
 
 ```shell
-./shell.sh
+source setup.zsh
 ```
 
-### Sensible macOS defaults
+This will apply the sensible macOS defaults within `.macos` and will install the Homebrew formulae within `Brewfile`. If you want to do those separately, you can:
+
+#### Sensible macOS defaults
 
 When setting up a new Mac, you may want to set some sensible macOS defaults:
 
@@ -79,7 +89,7 @@ When setting up a new Mac, you may want to set some sensible macOS defaults:
 ./.macos
 ```
 
-### Install Homebrew formulae
+#### Install Homebrew formulae
 
 When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae (after installing Homebrew, of course):
 

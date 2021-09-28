@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Setup sensible MacOS defaults and settings
 ./.macos
 
@@ -9,6 +11,12 @@ xcode-select --install
 
 # Open up perms to /usr/local so that Homebrew can install all it needs to
 sudo chown -R $(whoami) $(brew --prefix)/*
+
+# Make sure we're using the latest Homebrew
+brew update
+
+# Upgrade any already-installed formulae
+brew upgrade
 
 # Install everything in Brewfile
 brew bundle

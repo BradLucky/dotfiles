@@ -9,7 +9,6 @@ tap "homebrew/cask-drivers"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "buo/cask-upgrade"
-tap "heroku/brew"
 
 # Browsers
 cask "firefox-developer-edition"
@@ -22,6 +21,7 @@ cask "visual-studio-code-insiders"
 cask "docker"
 cask "tableplus"
 
+# Common Tools
 cask "logitech-options"
 cask "slack"
 cask "chromedriver"
@@ -30,9 +30,9 @@ cask "mutify"
 # System
 brew "zsh-completions"  # Additional completion definitions for zsh
 brew "mas"              # Mac App Store CLI
-brew "git"
+brew "git"              # git
 brew "gh"               # GitHub CLI
-brew "vim"
+brew "vim"              # vim
 brew "rg"               # ripgrep: super fast grep
 brew "htop"             # Improved interactive process viewer
 brew "libpq"            # Postgres C API library (may need to run `brew link --force libpq`)
@@ -45,7 +45,6 @@ brew "go"
 brew "nodejs"
 
 # Ops
-brew "heroku"
 brew "awscli"
 
 # Dev
