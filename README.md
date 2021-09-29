@@ -102,3 +102,4 @@ Some of the functionality of these dotfiles depends on formulae installed by `br
 ## Thanks to…
 
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
+* [Michael Friedrich's dotfile](https://gitlab.com/dnsmichi/dotfiles/-/tree/main)
