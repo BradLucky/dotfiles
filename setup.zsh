@@ -28,11 +28,17 @@ brew bundle
 latest_python=$(pyenv install --list | grep -v - | grep "\." | grep -v rc | grep -v b | tail -1 | xargs)
 pyenv install $latest_python
 pyenv global $latest_python
-unset latest_python
+
+IFS=. read major minor patch <<< $latest_python
 
 # Install Vundle and configured packages
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+cd ~/.vim/bundle/YouCompleteMe
+/usr/local/bin/python$major.$minor install.py -all
+cd ~/
+
+unset latest_python major minor patch
 
 # Install powerline-status and git
 sudo -H /usr/bin/python3 -m pip install powerline-status
