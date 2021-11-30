@@ -49,3 +49,6 @@ cd $(which rg | awk -F'/rg' '{print $1}')
 mv rg rgo
 echo "#\!/bin/sh\n\n$(pwd)/rgo -p \"\$@\" | less -RFX" > rg
 chmod 766 rg
+
+# Install gh extension "branch"
+gh extension install mislav/gh-branch

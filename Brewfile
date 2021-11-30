@@ -35,6 +35,7 @@ brew "zsh-completions"  # Additional completion definitions for zsh
 brew "mas"              # Mac App Store CLI
 brew "git"              # git
 brew "gh"               # GitHub CLI
+brew "fzf"              # fuzzy finder - necessary for gh branch extension
 brew "vim"              # vim
 brew "rg"               # ripgrep: super fast grep
 brew "htop"             # Improved interactive process viewer
