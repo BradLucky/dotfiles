@@ -4,7 +4,7 @@
 export EDITOR='vim';
 
 # Add libpq to the PATH
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/opt/libpq/bin:$PATH"
 
 export CLICOLOR="cons25"
 

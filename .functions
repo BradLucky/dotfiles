@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+# Initialize pyenv for system-wide Python version
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
 # Quickly navigate to location of installed Python packages within pyenv
 pypack() {
     pypack=$(pyenv which python | sed 's|bin/python|lib/python~/site-packages|g' | sed "s/~/$(pyenv version-name | cut -c1-3)/g")
