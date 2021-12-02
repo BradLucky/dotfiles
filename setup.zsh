@@ -33,10 +33,8 @@ IFS=. read major minor patch <<< $latest_python
 
 # Install Vundle and configured packages
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
-cd ~/.vim/bundle/YouCompleteMe
-/usr/local/bin/python$major.$minor install.py --all
-cd ~/
+vim -E -s -u ~/.vimrc +PluginInstall +qall
+/usr/local/bin/python$major.$minor ~/.vim/bundle/YouCompleteMe/install.py --all
 
 unset latest_python major minor patch
 

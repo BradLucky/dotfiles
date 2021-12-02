@@ -38,7 +38,7 @@ call vundle#end()
 filetype plugin indent on
 syntax enable
 
-colorscheme molokai
+silent! colorscheme molokai
 "hi Visual ctermbg=239
 
 " Added for vim-jsx (that seemed to be breaking indenting)
