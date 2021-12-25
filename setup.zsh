@@ -29,7 +29,7 @@ brew bundle
 #defaults read com.googlecode.iterm2
 
 # Use pyenv to install the latest version of Python and make it the default
-latest_python=$(pyenv install --list | grep -v - | grep "\." | grep -v rc | grep -v b | tail -1 | xargs)
+latest_python=$(pyenv install --list | grep -v - | grep "\." | grep -v "[a-zA-Z]" | tail -1 | xargs)
 pyenv install $latest_python
 pyenv global $latest_python
 
