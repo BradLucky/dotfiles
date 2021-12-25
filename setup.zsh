@@ -6,6 +6,9 @@
 # Install XCode first to circumvent future dependencies
 xcode-select --install
 
+# Install Rosetta 2 as it is required by Logitech-Options
+sudo softwareupdate --install-rosetta
+
 # This installs homebrew itself, and also the command line tools in silent mode
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
