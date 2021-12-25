@@ -16,9 +16,6 @@ sudo softwareupdate --install-rosetta
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/brad/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Open up perms to /usr/local so that Homebrew can install all it needs to
-sudo chown -R $(whoami) $(brew --prefix)/*
-
 # Make sure we're using the latest Homebrew
 brew update
 
