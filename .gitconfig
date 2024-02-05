@@ -87,6 +87,8 @@
   # Show the user email for the current repository.
   whoami = config user.email
 
+  stash-mv = "!f() { result=$(git stash drop ${1-0}); hash=$(echo $result | grep -Eo '[0-9a-z]{30,}'); git stash store -m \"${2-renamed}\" $hash; }; f"
+
 [apply]
 
   # Detect whitespace errors when applying a patch.
@@ -96,6 +98,9 @@
 
   # Show most recently changed branches first.
   sort = -committerdate
+
+  # Always treat `git pull` as `git pull --rebase`
+	autosetuprebase = always
 
 [core]
 
@@ -124,6 +129,9 @@
   # Use colors in Git commands that are capable of colored output when
   # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
   ui = auto
+  branch = auto
+  diff = auto
+  status = auto
 
 [color "branch"]
 
@@ -165,6 +173,9 @@
   log = true
 
 [push]
+  # Auto set upstream branch; removes the need for the `pushd` alias in this file
+  # https://git-scm.com/docs/git-push#Documentation/git-push.txt-pushautoSetupRemote
+  autoSetupRemote = true
 
   # https://git-scm.com/docs/git-config#git-config-pushdefault
         #default = simple
@@ -172,6 +183,9 @@
         #followTags = true
 
 # URL shorthands
+
+[stash]
+  showPatch = true
 
 [url "git@github.com:"]
 
@@ -196,3 +210,9 @@
 [init]
 
   defaultBranch = master
+[user]
+  name = Brad Luczywo
+  email = bluczywo@avatarfleet.com
+
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
